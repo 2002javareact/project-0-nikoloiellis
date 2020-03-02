@@ -9,14 +9,15 @@ export class User {
     firstname:string
     lastname:string
     email:string
-    role:Role 
-    constructor(userid:number,
+    role:number
+    constructor(
+        userid:number,
         username:string,
         password:string, 
         firstname:string, 
         lastname:string, 
         email:string, 
-        role:Role){
+        role:number){
 
             this.userid = userid;
             this.username = username;

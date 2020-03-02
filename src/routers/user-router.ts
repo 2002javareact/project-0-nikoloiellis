@@ -2,7 +2,7 @@ import * as express from 'express'
 import { User } from '../models/User'
 import {Role} from '../models/role'
 import { authAdminMiddleware, authUserMiddleware, authFactory, authCheckId } from '../middleware/auth-midleware'
-import { findAllUsers, saveOneUser, findUserById, SendReimbursements } from '../services/user_service'
+import { findAllUsers, saveOneUser, findUserById, SendReimbursements, UpdateUser } from '../services/user_service'
 import { UserDTO } from '../dto/UserDTO';
 
 
@@ -34,33 +34,36 @@ userRouter.get('', [authFactory(['Finance Manager']),  async (req,res)=>{
 
 
 
+
+
+//Update user 
+
 // generally in rest convention
 // a post request to the root of a resource will make one new of that resource
-userRouter.post('', authFactory(['Admin']), async (req,res)=>{
+userRouter.patch('', authFactory(['Admin']), async (req,res)=>{
     let {userid, username, password, 
-    emailAddress, 
-    firstName, lastName,
+    email, 
+    firstname,
+     lastname,
     role }:{
         userid:number,
         username:string,
         password:string,
-        emailAddress:string,
-        firstName:string,
-        lastName:string,
-        role:Role
+        firstname:string,
+        lastname:string,
+        email:string,
+        role:number
     } = req.body// this will be where the data the sent me is
     // the downside is this is by default just a string of json, not a js object
-    if(userid && username && password && emailAddress && firstName && lastName && role){
+    if(userid && username && password && email && firstname && lastname && role){
 
         
-        let newUser = await saveOneUser(new UserDTO(
-                                            userid,
-                                              username,
-                                              password,
-                                              emailAddress,
-                                              firstName,
-                                              lastName,
-                                              role
+        let newUser = await UpdateUser(new UserDTO(
+            userid, username, password, 
+            email, 
+            firstname,
+             lastname,
+            role 
         ))
         // this would be some function for adding a new user to a db
         res.status(201).json(newUser);

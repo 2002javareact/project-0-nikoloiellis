@@ -1,6 +1,6 @@
 export class ReimbursementDTO {
 
-   // reimbursementid:number
+    reimbursementid:number
     author:number
     amount:number 
     datesubmitted:number
@@ -11,6 +11,7 @@ export class ReimbursementDTO {
     type:number 
     constructor
     (
+        reimbursementid:number,
         author:number,
         amount:number ,
         datesubmitted:number,
@@ -19,10 +20,11 @@ export class ReimbursementDTO {
         resolver:number,
         status:number ,
         type:number ){
-           // this.reimbursementid = reimbursementid
+            this.reimbursementid = reimbursementid
             this.author = author
             this.amount = amount
             this.datesubmitted = datesubmitted
+            this.dateresolved = dateresolved;
             this.description = description
             this.resolver = resolver
             this.status = status 

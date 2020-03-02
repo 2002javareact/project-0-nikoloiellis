@@ -5,7 +5,7 @@ import { ReimbursementDTO } from "../dto/ReimbursementDTO";
 
 export function reimbursementDTOToReimbursementConverter(reimbursementDTO:ReimbursementDTO):Reimbursement{
     return new Reimbursement(
-       // reimbursementDTO.reimbursementid,
+        reimbursementDTO.reimbursementid,
         reimbursementDTO.author,
         reimbursementDTO.amount,
         reimbursementDTO.datesubmitted,

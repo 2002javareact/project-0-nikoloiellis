@@ -7,14 +7,14 @@ export class UserDTO {
     firstname:string
     lastname:string
     email:string
-    role:Role
+    role:number
     constructor(userid:number,
         username:string,
         password:string, 
         firstname:string, 
         lastname:string, 
         email:string, 
-        role:Role){
+        role:number){
 
             this.userid = userid;
             this.username = username;
