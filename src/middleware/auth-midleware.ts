@@ -59,7 +59,7 @@ export const authCheckId= (req,res,next) => {
         next()
 
     }
-    else if(req.sessin.role === 'Finance Manager'){
+    else if(req.sessin.role === 'Finance-Manager'){
         next()
 
     }

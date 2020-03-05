@@ -22,7 +22,7 @@ userRouter.get('', [authFactory(['Admin']),  async (req,res)=>{
     
 }])
 
-userRouter.get('', [authFactory(['Finance Manager']),  async (req,res)=>{
+userRouter.get('', [authFactory(['Finance-Manager']),  async (req,res)=>{
     //get all of our users
     //format them to json
     //use the response obj to send them back
@@ -76,7 +76,7 @@ userRouter.patch('', authFactory(['Admin']), async (req,res)=>{
 
 // in express we can add a path variable by using a colon in the path
 // this will add it to the request object and the colon makes it match anything
-userRouter.get('/:id', authFactory(['Admin', 'User']), authCheckId, async (req,res)=>{
+userRouter.get('/:id', authFactory(['Admin', 'Finance-Manager']), authCheckId, async (req,res)=>{
     const id = +req.params.id// the plus sign is to type coerce into a number
     if(isNaN(id)){
         res.sendStatus(400)

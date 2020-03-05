@@ -7,9 +7,9 @@ export function userDTOToUserConverter(userDTO:UserDTO):User{
         userDTO.userid,
         userDTO.username,
         userDTO.password,
-        userDTO.email,
         userDTO.firstname,
         userDTO.lastname,
+        userDTO.email,
         userDTO.role
     )
 }

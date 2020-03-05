@@ -135,7 +135,7 @@ remRouter.get('', [authFactory(['Admin']),  async (req,res)=>{
     
 }])
 
-remRouter.get('/author/:id', authFactory(['Admin', 'User']), authCheckId, async (req,res)=>{
+remRouter.get('/author/:id', authFactory(['Admin', 'Finance-Manager']), authCheckId, async (req,res)=>{
     const id = +req.params.id// the plus sign is to type coerce into a number
     if(isNaN(id)){
         res.sendStatus(400)
@@ -150,7 +150,7 @@ remRouter.get('/author/:id', authFactory(['Admin', 'User']), authCheckId, async 
         
     }
 })
-remRouter.get('/status/:id', authFactory(['Admin', 'User']), authCheckId, async (req,res)=>{
+remRouter.get('/status/:id', authFactory(['Admin', 'Finance-Manager']), authCheckId, async (req,res)=>{
     const id = +req.params.id// the plus sign is to type coerce into a number
     if(isNaN(id)){
         res.sendStatus(400)
@@ -167,7 +167,7 @@ remRouter.get('/status/:id', authFactory(['Admin', 'User']), authCheckId, async 
     }
 })
 //All Finance Manager Go here
-remRouter.post('', authFactory(['Finance Manager']), async (req,res)=>{
+remRouter.post('', authFactory(['Finance-Manager']), async (req,res)=>{
     let { 
         reimbursementid,
         author,
