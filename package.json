@@ -19,7 +19,7 @@
   "homepage": "https://github.com/2002javareact/project-0-nikoloiellis#readme",
   "dependencies": {
     "@types/node": "^13.7.4",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-session": "^1.17.0",
     "pg": "^7.18.2"
   },
